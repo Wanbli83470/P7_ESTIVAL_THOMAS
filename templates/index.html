@@ -1,0 +1,189 @@
+<!-- templates inheritance --> 
+
+{% extends "layout.html"%}
+
+<!-- HTML code in the content block -->
+
+{% block content %}
+
+<!-- creation of the header -->
+
+	<header id="header">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-2 col-sm-2 col-xd-12 text-center">
+				<a href="#">
+					<img id="logo" src="{{DICO_IMAGE.logo}}">
+				</a>
+			</div>
+			<div class="col-lg-10 text-center">
+				<h2>{{TITLE}}</h2>
+				<p>{{CATCH_PHRASE}}</p>
+			</div>
+		</div>
+	</div>
+	</header>
+
+<!-- creation of the central area -->
+
+<div id="fond_code">
+		<!-- creating the form area --> 
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 col-xd-12">
+			        <form class="form" id="name_form" method="post">
+			            <input type="text" name="question" value=">>> " />
+			            <br/>
+			            <hr>
+
+			        </form>
+
+					<!-- ajax request --> 
+
+			        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+			        <script type="text/javascript">
+			            $('#name_form').submit(function(e) {
+			                    e.preventDefault();
+
+			                    var data = {};
+			                    var Form = this;
+
+			                    $.each(this.elements, function(i, v) {
+			                        var input = $(v);
+			                        data[input.attr("name")] = input.val();
+			                        delete data["undefined"];
+			                    });
+
+			                    $.ajax({
+			                        type: 'POST',
+			                        url: '/response',
+			                        dataType: 'json',
+			                        contentType: 'application/json; charset=utf-8',
+			                        data: JSON.stringify(data),
+			                        context: Form,
+
+			                        success: function(callback) {
+
+			                            console.log(callback);
+			                            // use of the javascript : "html method" to register the feedback in p1
+			                            $(".p1").html("<p>" + callback.random_maps + " " + callback.data_adress + '! </p>' + "<hr>");
+			                            // use of the javascript : "html method" to register the feedback in p2
+			                            $(".p2").html("<p>" + callback.random_wiki + " " + callback.result_wiki + '! </p>' + "<hr>");
+			                            // Recover data in latitude and longitude provided by the Flask server
+										let dynamicLat = callback.lat
+										let dynamicLng = callback.lng
+										let dynamicTitle = callback.data_adress
+										// creation of the dynamicPosition variable adapted to Google maps methods
+										let dynamicPostion = {lat: dynamicLat, lng: dynamicLng};
+										// updating the maps
+										map.setCenter(dynamicPostion);
+										// create location marker
+										var marker2 = new google.maps.Marker({
+										  position: dynamicPostion,
+										  title: dynamicTitle,
+										});
+										marker2.setMap(map);
+			                        	},
+
+			                        error: function() {
+			                        	var monTableau = ["Il me semble t'avoir déjà raconté l'histoire de ce lieu mon grand !", "Papy est fatigué..", "Je chercherai ça dans mes vieilles notes poussiéreuses"];
+			                        	var rand = monTableau[Math.floor(Math.random() * monTableau.length)];
+			                            $(".p1").html(rand);
+			                        }
+			                    });
+			                }); 
+			            </script>
+
+				</div>
+			<!-- animation du logo -->
+				<div class="col-lg-12 offset-lg-4 col-sm-1">
+					<p id="icône" class="rotating">
+					</p>
+				</div>
+			</div>
+
+		</div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-7 col-sm-12">
+				<div id="googleMap">
+
+				    <script>
+
+				      var map;
+					  var marker;
+					  // initial location
+					  var location1 = {
+					    lat: 45.123456,
+					    lng: 3.456789
+					  };
+					  // création de la map en ajoutant la méthode de Gmaps à la div "googleMap"
+				      function initMap() {
+				        map = new google.maps.Map(document.getElementById('googleMap'), {
+				        center: location1,
+				        zoom: 12
+				        });
+				      // Création d'un Marqueur d'emplacement.
+						var marker = new google.maps.Marker({
+					    position: location1,
+					    title: 'OpenClassRooms'
+					  });
+						marker.setMap(map)
+				      };
+
+				    </script>
+
+				    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALFscZvQOVMBXm_0hwRR5EQcqaZLuTpE0&callback=initMap"
+				    async defer></script>
+					
+			</div>
+		</div>
+		<div class="col-lg-5 col-sm-12">
+
+			<div id="response">
+				<p class="p1"></p>
+				<p class="p2"></p>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+</div>
+
+<!-- footer creation -->
+
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-sm-12 text-center"><h1>{{MY_NAME}}</h1></div>
+				<div class="col-lg-3">
+					<div class="row">
+						<div class="col-lg-4 col-sm-4 col-xs-4 text-center">
+							<a href="{{DICO_LINK.facebook}}">
+								<img id="social_networks" src="{{DICO_IMAGE.image_facebook}}">
+							</a>
+						</div>
+						<div class="col-lg-4 col-sm-4 col-xs-4 text-center">
+							<a href="{{DICO_LINK.linkedin}}">
+								<img id="social_networks"  src="{{DICO_IMAGE.image_linkedin}}">
+							</a>
+						</div>
+						<div class="col-lg-4 col-sm-4 col-xs-4 text-center">
+							<a href="{{DICO_LINK.git_hub}}">
+								<img id="social_networks" src="{{DICO_IMAGE.image_github}}">
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+
+<!-- closing the content block -->
+
+{% endblock content %}

@@ -1,0 +1,373 @@
+
+body {
+	color: white;
+	background: linear-gradient(to right, rgba(184,225,252,1) 0%,rgba(144,188,234,1) 50%,rgba(189,243,253,1) 100%); 
+}
+
+/*Setting up the google map*/
+
+#googleMap{
+	background-color: white;
+	height: 400px;
+	border: 2px dashed black;
+	border-radius: 15px;
+}
+
+#response{
+	background-color: rgba(0, 0, 0, 0.9);
+	border-radius: 10% / 50%;
+	height: 400px;
+	text-align: center;
+	padding: 5%;
+}
+
+/*Social Network Image Adjustment*/
+
+#social_networks{
+	opacity: 0.7;
+	margin : auto;
+	width: 100%;
+	height:100%;
+	box-shadow: 2px 2px 5px grey;
+	background-color: black;
+	border-radius: 10px 100px / 120px;
+}
+
+/*HOVER Social Network Image Adjustment*/
+
+#social_networks:hover{
+	opacity: 1;
+	margin: auto;
+	height: 105%;
+	width: 105%;
+
+}
+
+/*setting up the logo*/
+
+#logo{
+	opacity: 0.7;
+	margin : auto;
+	width: 100%;
+	height: 100%;
+	box-shadow: 2px 2px 5px grey;
+	background-color: black;
+	border-radius: 10px 100px / 120px;
+}
+
+/*HOVER setting up the logo*/
+
+#logo:hover{
+	opacity: 1;
+	margin: auto;
+	height: 105%;
+	width: 105%;
+}
+
+/*Paramétrage du fond de la zone central = image et parallax*/
+
+#fond_code{
+	margin-bottom:1%;
+	background-image: url("carte.jpg");
+	box-shadow: 0px -5px 5px white;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	height: 750px;
+	width: 100%;
+	text-align: center;
+	padding-top: 2%;
+	opacity: 0.8;
+	color : white;
+}
+h1{
+	text-decoration: underline;
+	font-size :3em;
+	font-style: oblique;
+}
+
+h2{
+	text-decoration: underline;
+	font-size : 7em;
+	font-style: oblique;
+}
+
+p{
+	font-size: 1.5em;
+}
+
+.p1{
+	font-size: 1.5em;
+}
+
+.p2{
+	font-size: 0.7em;
+}
+
+/*Loop search animation*/
+
+@keyframes rotate360 {
+	from { -webkit-transform: rotate(0deg); }
+ 	to { -webkit-transform: rotate(360deg); }
+}
+
+#icône{
+	margin-top: 2%;
+	background-image: url("anim.svg");
+	width: 52px;
+	height: 52px;
+	margin: auto;
+	transform-origin: 50% 50%;
+	background-repeat: no-repeat;
+}
+.rotating {
+    -webkit-animation: rotate360 1s linear infinite;
+}
+
+
+
+.row > [class^="col-"],
+.row > [class*=" col-"] {
+  justify-content: center;
+}
+
+#footer{
+	background: yellow;
+	color:#646464;
+	font-style: bold;
+	box-shadow: 0px -5px 5px white;
+}
+
+/*Form settings*/
+
+label{
+	font-size: 2em
+}
+
+.form{
+	color: white;
+
+}
+input{
+	color: white;
+	background-color: black;
+	border-radius:5px;
+	border: 2px dashed white;
+
+	box-shadow:3px 3px 3px white;
+	width: 85%;
+	height: 50%;
+	font-size: 1.5em;
+	font-style: oblique;
+}
+
+/*Settings for media queries*/
+
+/*tablet*/
+
+@media screen and (max-width: 1280px) {
+
+	p{
+		font-size: 1em;
+	}
+
+	.p1{
+		font-size: 1em;
+	}
+
+	.p2{
+		font-size: 1em;
+	}
+
+	#fond_code{
+		margin-bottom:1%;
+		background-image: url("carte.jpg");
+		box-shadow: 0px -5px 5px white;
+	    /* Create the parallax scrolling effect */
+	    background-attachment: fixed;
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+		height: 550px;
+		width: 100%;
+		text-align: center;
+		padding-top: 2%;
+		opacity: 0.8;
+		color : white;
+	}
+
+	#googleMap{
+		height: 100px;
+		background-color: white;
+	}
+
+	#response{
+		background-color: rgba(0, 0, 0, 0.9);
+		border-radius: 10% / 50%;
+		height: 100px;
+		text-align: center;
+		padding: 5%;
+	}
+
+	#social_networks{
+		opacity: 0.7;
+		margin : auto;
+		width: 50%;
+		height: 50%;
+		box-shadow: 2px 2px 5px grey;
+		background-color: black;
+		border-radius: 10px 100px / 120px;
+	}
+
+	#social_networks:hover{
+		opacity: 0.7;
+		margin : auto;
+		width: 60%;
+		height: 60%;
+		box-shadow: 2px 2px 5px grey;
+		background-color: black;
+		border-radius: 10px 100px / 120px;
+	}
+
+	#logo{
+		opacity: 0.7;
+		margin : auto;
+		width: 75%;
+		height: 75%;
+		box-shadow: 2px 2px 5px grey;
+		background-color: black;
+		border-radius: 10px 100px / 120px;
+	}
+
+	#logo:hover{
+		opacity: 0.7;
+		margin : auto;
+		width: 30%;
+		height: 30%;
+		box-shadow: 2px 2px 5px grey;
+		background-color: black;
+		border-radius: 10px 100px / 120px;
+	}
+}
+
+/*smartphone*/
+
+@media screen and (max-width: 768px) {
+
+	p{
+		font-size: 0.75em;
+	}
+
+	.p1{
+		font-size: 0.85em;
+	}
+
+	.p2{
+		font-size: 0.85em;
+	}
+
+	#fond_code{
+		margin-bottom:1%;
+		background-image: url("carte.jpg");
+		box-shadow: 0px -5px 5px white;
+	    /* Create the parallax scrolling effect */
+	    background-attachment: fixed;
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+		height: 550px;
+		width: 100%;
+		text-align: center;
+		padding-top: 2%;
+		opacity: 0.8;
+		color : white;
+	}
+
+	#googleMap{
+		width: 100%;
+		height: 150px;
+		background-color: white;
+	}
+
+	#response{
+		background-color: rgba(0, 0, 0, 0.9);
+		border-radius: 10% / 50%;
+		height: 250px;
+		text-align: center;
+		padding: 5%;
+		margin-top: 5%
+	}
+
+	#social_networks,{
+		opacity: 0.7;
+		margin : auto;
+		width: 50%;
+		height: 50%;
+		box-shadow: 2px 2px 5px grey;
+		background-color: black;
+		border-radius: 10px 100px / 120px;
+	}
+
+	#social_networks:hover{
+		opacity: 0.7;
+		margin : auto;
+		width: 60%;
+		height: 60%;
+		box-shadow: 2px 2px 5px grey;
+		background-color: black;
+		border-radius: 10px 100px / 120px;
+	}
+
+	#logo{
+		opacity: 0.7;
+		margin : auto;
+		width: 50%;
+		height: 50%;
+		box-shadow: 2px 2px 5px grey;
+		background-color: black;
+		border-radius: 10px 100px / 120px;
+	}
+
+	#logo:hover{
+		opacity: 0.7;
+		margin : auto;
+		width: 55%;
+		height: 55%;
+		box-shadow: 2px 2px 5px grey;
+		background-color: black;
+		border-radius: 10px 100px / 120px;
+	}
+	button{
+	width: 50%;
+	height: 75%;
+	box-shadow: 2px 2px 5px grey;
+	}
+	#header{
+		margin: auto;
+	}
+
+	h1{
+	text-decoration: underline;
+	font-size :2em;
+	font-style: oblique;
+	}
+	h2{
+	text-decoration: underline;
+	font-size : 4em;
+	font-style: oblique;
+	}
+
+	input{
+		color: white;
+		background-color: black;
+		border-radius:5px;
+		border: 2px dashed white;
+		box-shadow:3px 3px 3px white;
+		width: 100%;
+		height: 50%;
+		font-size: 1.5em;
+		font-style: oblique;
+	}
+}

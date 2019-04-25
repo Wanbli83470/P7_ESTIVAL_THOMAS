@@ -1,0 +1,44 @@
+<!-- declaration of the html page -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+  <!-- Title integration using a python variable -->
+
+  <title>{{TITLE}}</title>
+
+  <!-- UTF8 encoding of the site -->
+
+  <meta charset="utf-8">
+
+  <!--  Réglage du méta viewport -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap framework integration since CDN -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Integration of a css style page -->
+
+  <link rel="stylesheet" type="text/css" href="{{url_for("static", filename = "style.css")}}">
+
+  <!-- Integration of the jquery library -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
+
+  <!-- Integration of the javascript file -->
+
+  <script type="text/javascript" src="{{url_for("static", filename = "script.js")}}"></script>
+
+</head>
+
+	<body>
+
+	{% block content %} {% endblock %}
+
+	</body>
+	
+</html>
