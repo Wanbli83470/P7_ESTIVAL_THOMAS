@@ -1,6 +1,8 @@
-///Initialisation Jquery
+///Initialization document ready
 
 $(document).ready(function(){
+
+///Hide items before user actions
 
 	$("#icône").css('opacity','0')
 	$("#googleMap").hide()
@@ -8,7 +10,8 @@ $(document).ready(function(){
 	$(".p2").hide()
 	$(".RANDOM").hide()
 	$("#histoire").hide()
-///Option d'affichages
+
+/// Appearance of the elements at the passage of the mouse
 
 	$("#fond_code").mouseenter(5000, function(){
 		$("#fond_code").css('opacity','1');
@@ -18,6 +21,8 @@ $(document).ready(function(){
 		$("#fond_code").css('opacity','0.7');
 	});
 
+///Appearance of the elements to the passages after the submit
+
 	$('form').submit(function(){
 		$("#icône").delay(400).fadeTo("slow", 1);
 		$(".p1").delay(1600).fadeIn(2000);
@@ -26,9 +31,5 @@ $(document).ready(function(){
 		$("#googleMap").delay(2200).fadeIn(2000);
 		$(".p2").delay(4000).fadeIn(2000);
 	});
-	// $('#username').click(function(){
-	// 	$("#icône").show()
-	// });
-
 
 });
