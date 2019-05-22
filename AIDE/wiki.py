@@ -10,8 +10,17 @@ class RequestWiki:
         self.nb_phrase = nb_phrase
 
     def geo_search(self):
-        self.geo = r.get("https://fr.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord={}|{}&gsradius=10000&gslimit=10".format(self.lat, self.lng))
+        url = "https://fr.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord={}|{}&gsradius=10000&gslimit=10&format=json".format(self.lat, self.lng)
+        print(url)
+        self.geo = r.get(url)
         print(self.geo)
 
+
+    def get_adress(self):
+        geo_json = self.geo.json()
+
+
+
 test = RequestWiki()
-print(test.geo_search())
+test.geo_search()
+test.get_adress()
