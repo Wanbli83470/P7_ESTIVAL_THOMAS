@@ -13,6 +13,7 @@ class TestMaps(unittest.TestCase):
     def test_response(self):
         self.assertEqual(self.response.response(), 200)
         self.assertEqual(self.response2.response(), 200)
+        self.assertEqual(self.response2.response(), 200)
 
     def test_adress(self):
         self.assertEqual(self.response.get_adress(), "78000 Versailles, France")
