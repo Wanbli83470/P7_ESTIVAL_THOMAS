@@ -1,40 +1,42 @@
 import unittest
-from wiki_wrapper import RequestWiki
+from wiki import RequestWiki
 from unittest.mock import patch, Mock
+import os
 
+# Test sans Mock
 class TestWiki(unittest.TestCase):
-
-	@patch('wiki_wrapper.RequestWiki.geo_search')
-	def testStatus(self, mock_code):
-
-		# MOCK
-		mock_code.return_value.status_code = 200
-		# TEST
-		instance = RequestWiki()
-		http = instance.geo_search()
-		print(http)
-		assert http.status_code == 200
+    def setUp(self):
+        # Instance de request Wiki
+        self.response = RequestWiki()
+        self.response.geo_search()
+        self.info = self.response.get_adress()
+        print("info = {}".format(self.info))
 
 
-	@patch('wiki_wrapper.RequestWiki.resume')
-	def testResume(self, mock_resume):
-		# MOCK
-		mock_resume.return_value.data = ['Stade Vélodrome', 'Marseille Genocide Memorial']
-		# TEST
-		instance = RequestWiki()
+    def test_response(self):
+        self.assertEqual(self.response.geo_search(), 200)
 
-		data = instance.resume()
-		assert data == ['Stade Vélodrome', 'Marseille Genocide Memorial']
+    def test_adress(self):
+        self.assertEqual(self.response.get_adress(), ("Lycée%20Honoré-d'Estienne-d'Orves", 4223656))
 
+    def test_resume(self):
+        print(type(self.response.resume(url = self.info[0], id_page=self.info[1])))
+        self.assertIn("Le lycée Honoré-d’Estienne-d’Orves", self.response.resume(url = self.info[0], id_page=self.info[1]))
 
+# class TestWikiMock(unittest.TestCase):
+#     @patch('wiki.RequestWki.geo_search'):
+#
+#     def test_response(self, mock_):
+#         mock_.return_value.status_code = 200
+#         response = RequestWiki()
 
-	# def setUp(self):
-	# 	print("setUp")
-	# 	self.result = RequestWiki()
-
-	# def testData(self):
-	# 	print("Test Data")
-	# 	self.assertEqual(self.result.geo_search(), None)
+import os
+test = os.environ.get('KEY_GMAPS')
+print(test)
 
 if __name__ == '__main__':
-	unittest.main()
+    unittest.main()
+
+
+
+
