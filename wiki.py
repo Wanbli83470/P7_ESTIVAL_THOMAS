@@ -41,9 +41,9 @@ class RequestWiki:
 
         return resume_json
 
-# test = RequestWiki()
-# test.geo_search()
-# info_api = test.get_adress()
-#
-# print(info_api)
-# test.resume(url = info_api[0], id_page = info_api[1])
+test = RequestWiki()
+test.geo_search()
+info_api = test.get_adress()
+
+print(info_api)
+test.resume(url = info_api[0], id_page = info_api[1])

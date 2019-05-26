@@ -28,15 +28,17 @@ def result():
 		data_maps = RequestMap(parse)
 		data_adress = data_maps.get_adress()
 		data_location = data_maps.get_location()
-		lat = data_location["lat"]
-		lng = data_location["lng"]
+		print(data_location)
+		lat = data_location[0]
+		lng = data_location[1]
 		position = str(lat) + str(lng)
 		print(position)
 
 		# we use the coordinates to obtain wikipedia information with its API
 		data_wiki = RequestWiki(lat=lat, lng=lng)
 		data_wiki.geo_search()
-		result_wiki = data_wiki.resume()
+		info_api = data_wiki.get_adress()
+		result_wiki = data_wiki.resume(url = info_api[0], id_page = info_api[1])
 
 		# We post new answers with the random module
 		random_maps = RANDOM()
