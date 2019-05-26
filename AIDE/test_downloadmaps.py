@@ -10,6 +10,9 @@ class TestMaps(unittest.TestCase):
         self.response2 = RequestMap(words="Stade vélodrome")
         self.response3 = RequestMap(words="Basilique Saint-maximin")
 
+    def test_form_input(self):
+        self.assertIs(type(self.response.words), str)
+
     def test_response(self):
         self.assertEqual(self.response.response(), 200)
         self.assertEqual(self.response2.response(), 200)
@@ -25,6 +28,8 @@ class TestMaps(unittest.TestCase):
         self.assertEqual(self.response2.get_location(), (43.269827, 5.395887300000001))
         self.assertEqual(self.response3.get_location(), (43.4527228, 5.8634467))
 
+    def test_format_json(self):
+        pass
 # with mock
 
 
