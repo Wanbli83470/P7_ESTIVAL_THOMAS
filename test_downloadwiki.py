@@ -1,11 +1,15 @@
+"""Import the wiki.py file to test the RequestWiki class
+Import of Unittest and the mock and path module to test API requests
+"""
 import unittest
 from wiki import RequestWiki
 from unittest.mock import patch, Mock
-import os
 
 # Test sans Mock
 class TestWiki(unittest.TestCase):
+
     def setUp(self):
+        """SetUp function to create class instances that will be used for testing"""
         # Instance de request Wiki
         self.response = RequestWiki()
         self.response.geo_search()
@@ -30,13 +34,6 @@ class TestWiki(unittest.TestCase):
 #         mock_.return_value.status_code = 200
 #         response = RequestWiki()
 
-import os
-test = os.environ.get('KEY_GMAPS')
-print(test)
 
 if __name__ == '__main__':
     unittest.main()
-
-
-
-
