@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import random as r
 
-# fixed data to use with the jinja template engine
+# fixed data to use with the 'Jinja' template engine
 MY_NAME = "ESTIVAL Thomas"
 TITLE = "GrandPyBot"
 CATCH_PHRASE = "Soufflez à l'oreille de GranpaPython... il vous offrira ses secrets..."
@@ -9,20 +9,20 @@ CATCH_PHRASE = "Soufflez à l'oreille de GranpaPython... il vous offrira ses sec
 # url path to display images in html code
 
 DICO_IMAGE = {
-	"image_facebook" : "static/fb.svg",
-	"image_linkedin" : "static/linkedin.svg",
-	"image_github" : "static/git_hub.svg",
-	"logo" : "static/loupe.svg",
-	"gif_search" : "static/anim3.gif",
+	"image_facebook": "static/fb.svg",
+	"image_linkedin": "static/linkedin.svg",
+	"image_github": "static/git_hub.svg",
+	"logo": "static/loupe.svg",
+	"gif_search": "static/anim3.gif",
 }
 
 
 # url path to include links in html code
 
 DICO_LINK = {
-	"facebook" : "https://www.facebook.com/thomas.estival.9",
-	"linkedin" : "https://www.linkedin.com/in/thomas-estival-384424152/",
-	"git_hub" : "https://github.com/Wanbli83470",
+	"facebook": "https://www.facebook.com/thomas.estival.9",
+	"linkedin": "https://www.linkedin.com/in/thomas-estival-384424152/",
+	"git_hub": "https://github.com/Wanbli83470",
 }
 
 # List of three sentences to display a random expression before the location
@@ -34,10 +34,9 @@ GRANDPY2 = ["Mais t'ai-je déjà raconté l'histoire de ce quartier qui m'a vu e
 RANDOM2 = r.choice(GRANDPY2)
 
 
-
-
 def RANDOM():
 	return r.choice(GRANDPY1)
+
 
 def RANDOM2():
 	return r.choice(GRANDPY2)
