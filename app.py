@@ -8,7 +8,7 @@ from constantes import *
 from gmaps import *
 from parse import Parsing
 from wiki import *
-from flask import Flask, url_for, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 

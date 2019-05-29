@@ -1,5 +1,0 @@
-1 On cherche par mots clefs :
-https://fr.wikipedia.org/w/api.php?action=query&list=search&srsearch=Cit%C3%A9_Paradis&utf8=&format=json
-/// le premier résultat est pertinent et correspond au lieu
-2 On affine la recherche selon le titres, puis le nombre de phrase
-https://fr.wikipedia.org/w/api.php?action=query&titles=Cit%C3%A9%20Paradis&prop=extracts&exsentences=3&format=json&explaintext

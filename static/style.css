@@ -86,24 +86,30 @@ h1{
 	text-decoration: underline;
 	font-size :3em;
 	font-style: oblique;
+	font-family: 'Convergence', sans-serif;
+
 }
 
 h2{
 	text-decoration: underline;
 	font-size : 7em;
 	font-style: oblique;
+	font-family: 'Convergence', sans-serif;
 }
 
 p{
 	font-size: 1.5em;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .p1{
 	font-size: 1.5em;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .p2{
 	font-size: 0.7em;
+	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 /*Loop search animation*/
@@ -144,11 +150,12 @@ p{
 
 label{
 	font-size: 2em
+	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 
 .form{
 	color: white;
-
+	font-family: 'M PLUS Rounded 1c', sans-serif;
 }
 input{
 	color: white;
@@ -171,14 +178,17 @@ input{
 
 	p{
 		font-size: 1em;
+		font-family: 'M PLUS Rounded 1c', sans-serif;
 	}
 
 	.p1{
 		font-size: 1em;
+		font-family: 'M PLUS Rounded 1c', sans-serif;
 	}
 
 	.p2{
 		font-size: 1em;
+		font-family: 'M PLUS Rounded 1c', sans-serif;
 	}
 
 	#fond_code{
@@ -263,14 +273,17 @@ input{
 
 	p{
 		font-size: 0.75em;
+		font-family: 'M PLUS Rounded 1c', sans-serif;
 	}
 
 	.p1{
 		font-size: 0.85em;
+		font-family: 'M PLUS Rounded 1c', sans-serif;
 	}
 
 	.p2{
 		font-size: 0.85em;
+		font-family: 'M PLUS Rounded 1c', sans-serif;
 	}
 
 	#fond_code{
@@ -358,11 +371,13 @@ input{
 	text-decoration: underline;
 	font-size :2em;
 	font-style: oblique;
+	font-family: 'Convergence', sans-serif;
 	}
 	h2{
 	text-decoration: underline;
 	font-size : 4em;
 	font-style: oblique;
+	font-family: 'Convergence', sans-serif;
 	}
 
 	input{
