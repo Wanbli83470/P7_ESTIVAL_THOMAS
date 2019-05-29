@@ -4,7 +4,8 @@ Import of Unittest and the mock and path module to test API requests
 import unittest
 from unittest.mock import patch, Mock
 from gmaps import RequestMap
-# Without mock
+
+# Test Without mock
 
 class TestMaps(unittest.TestCase):
 
