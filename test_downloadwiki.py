@@ -4,6 +4,22 @@ Import of Unittest and the mock and path module to test API requests
 import unittest
 from wiki import RequestWiki
 from unittest.mock import patch, Mock
+import json
+
+
+# Travail du format json
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+
+#Conversion en JSON
+
+x_json = json.dumps(x)
+
+print(type(x_json))
+
 
 # Test Without mock
 
@@ -34,27 +50,93 @@ from unittest.mock import patch, Mock
 
 # Test With Mock
 
-class TestWikiMock(unittest.TestCase):
 
-    def test_response(self):
-        print(" \n >>> MOCK \n test_response")
-        with patch('wiki.r.get') as mock_get:
-            mock_get.return_value.status_code = 200
-            print(mock_get)
-            response = RequestWiki()
-            self.assertEqual(response.geo_search(), 200)
+class BasicTests(unittest.TestCase):
 
-    @patch('wiki.RequestWiki.get_adress')
-    def test_adress(self, mock_get_adress):
-        print(" \n >>> MOCK \n test_adress")
-        #On se sert de ce JSON inventé
-        lieux = {"lieux": 'lieux_ok'}
-        mock_get_adress = Mock()
-        mock_get_adress.return_value.json.return_value = lieux
-        #On instancie la classe et sa méthode
-        lieu = 'lieux_ok'
-        # On procède au test
-        self.assertIn(lieu, lieux)
+    def test_mock_whole_function(self):
+        """Mocking a whole function"""
+        mock_get_patcher = patch('wiki.r.get')
+
+        users = {
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "1600",
+               "short_name" : "1600",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Amphitheatre Pkwy",
+               "short_name" : "Amphitheatre Pkwy",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Mountain View",
+               "short_name" : "Mountain View",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Santa Clara County",
+               "short_name" : "Santa Clara County",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "California",
+               "short_name" : "CA",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "United States",
+               "short_name" : "US",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "94043",
+               "short_name" : "94043",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 37.4224764,
+               "lng" : -122.0842499
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 37.4238253802915,
+                  "lng" : -122.0829009197085
+               },
+               "southwest" : {
+                  "lat" : 37.4211274197085,
+                  "lng" : -122.0855988802915
+               }
+            }
+         },
+         "place_id" : "ChIJ2eUgeAK6j4ARbn5u_wAGqWA",
+         "types" : [ "street_address" ]
+      }
+   ],
+   "status" : "OK"
+}
+
+        # Start patching 'requests.get'.
+        mock_get = mock_get_patcher.start()
+
+        # Configure the mock to return a response with status code 200 and a list of users.
+        mock_get.return_value.status_code = 200
+        mock_get.return_value.json.return_value = users
+        print(mock_get)
+        # Call the service, which will send a request to the server.
+        response = RequestWiki()
+        # Stop patching 'requests'.
+
+        # Assert that the request-response cycle completed successfully.
+        self.assertEqual(response.geo_search(), 200)
+
+        mock_get_patcher.stop()
 
 
 if __name__ == '__main__':

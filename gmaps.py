@@ -30,3 +30,6 @@ class RequestMap:
         lng = self.json_object["results"][0]["geometry"]["location"]["lng"]
         location = (lat, lng)
         return location
+
+ok = RequestMap()
+print(ok.http_get)
