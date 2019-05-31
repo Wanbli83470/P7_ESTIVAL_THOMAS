@@ -21,6 +21,9 @@ class TestMaps(unittest.TestCase):
         """test the type of user input >>> str """
         self.assertIs(type(self.response.words), str)
 
+    def test_file_format(self):
+        pass
+
 # with mock
 
 
@@ -29,7 +32,7 @@ class MockTestMaps(unittest.TestCase):
     def test_mock_data(self):
         """Mocking a whole function"""
         mock_get_patcher = patch('gmaps.search.get')
-        get_file = open('json_test_1.json', 'r')
+        get_file = open('json_maps_1.json', 'r')
         json_file = json.load(get_file)
 
         # Start patching 'requests.get'.
@@ -41,14 +44,13 @@ class MockTestMaps(unittest.TestCase):
 
         # Call the service, which will send a request to the server.
         response = RequestMap()
-        print("test get adress")
 
-        print(response.get_adress())
-        # Stop patching 'requests'.
 
         # Assert that the request-response cycle completed successfully.
         self.assertEqual(response.response(), 200)
-        self.assertIn("USA", response.get_adress())
+        self.assertIn("78000 Versailles, France", response.get_adress())
+        self.assertEqual((48.801408, 2.130122), response.get_location())
+        # Close the processus
         mock_get_patcher.stop()
         get_file.close()
 

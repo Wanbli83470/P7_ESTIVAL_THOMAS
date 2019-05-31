@@ -20,6 +20,7 @@ class RequestWiki:
         self.geo = r.get(url)
         status = self.geo.status_code
         print(status)
+        print(url)
         return status
 
     def get_adress(self):
@@ -45,3 +46,5 @@ class RequestWiki:
         resume_json = resume_json['query']['pages'][str(id_page)]['extract']
 
         return resume_json
+ok=RequestWiki()
+ok.geo_search()

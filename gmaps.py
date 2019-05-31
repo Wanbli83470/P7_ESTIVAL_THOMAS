@@ -31,5 +31,4 @@ class RequestMap:
         location = (lat, lng)
         return location
 
-ok = RequestMap()
-print(ok.http_get)
+ok = RequestMap(words='Stade Vélodrome')
