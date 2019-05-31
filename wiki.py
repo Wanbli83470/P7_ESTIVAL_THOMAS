@@ -35,11 +35,13 @@ class RequestWiki:
 
         # On formate la chaine de caractère pour l'intégrer dans la requête API
         title_geo_json = title_geo_json.replace(" ", "%20")
-
+        print(title_geo_json)
         return title_geo_json, id_geo_json
 
     def resume(self, url, id_page):
         """Configuration de l'URL d'une requête API avec les données pour extraires les phrases importantes """
+        print("https://fr.wikipedia.org/w/api.php?action=query&titles={}&prop=extracts&exsentences=2&format=json&explaintext".
+                            format(url))
         resume_json = r.get("https://fr.wikipedia.org/w/api.php?action=query&titles={}&prop=extracts&exsentences=2&format=json&explaintext".
                             format(url))
         resume_json = resume_json.json()
@@ -48,3 +50,4 @@ class RequestWiki:
         return resume_json
 ok=RequestWiki()
 ok.geo_search()
+info=ok.get_adress()

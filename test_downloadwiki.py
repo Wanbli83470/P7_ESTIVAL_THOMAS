@@ -72,8 +72,16 @@ class BasicTests(unittest.TestCase):
         # Assert that the request-response cycle completed successfully.
         self.assertEqual(response.geo_search(), 200)
         self.assertIn(4223656, response.get_adress())
-        mock_get_patcher.stop()
         get_file.close()
+
+        get_file = open('json_wiki_2.json', 'r')
+        json_file = json.load(get_file)
+        mock_get.return_value.json.return_value = json_file
+
+        self.assertIn("Le stade Vélodrome", response.resume(id_page=153581, url="Stade%20Vélodrome"))
+
+        mock_get_patcher.stop()
+
 
 
 if __name__ == '__main__':
