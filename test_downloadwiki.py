@@ -16,7 +16,7 @@ class TestWiki(unittest.TestCase):
         # Instance de request Wiki
         self.response = RequestWiki()
         self.response_format = self.response.geo_search()
-        print("ok" + self.response_format)
+        print(self.response.geo.headers['Content-type'])
 
     def test_form_input(self):
         """test the type of user input >>> float """
@@ -26,8 +26,8 @@ class TestWiki(unittest.TestCase):
         print("Saisie en décimal OK")
 
     def test_file_format(self):
-        self.assertIn('json', self.response_format.geo.headers['Content-type'])
-        print((self.response_format.geo.headers['Content-type']))
+        self.assertIn('json', self.response.geo.headers['Content-type'])
+        print((self.response.geo.headers['Content-type']))
         print("Retour au format json OK")
 
 # Test With Mock
