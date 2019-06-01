@@ -32,7 +32,7 @@ class MockTestMaps(unittest.TestCase):
     def test_mock_data(self):
         """Mocking a whole function"""
         mock_get_patcher = patch('gmaps.search.get')
-        get_file = open('json_maps_1.json', 'r')
+        get_file = open('json/json_maps_1.json', 'r')
         json_file = json.load(get_file)
 
         # Start patching 'requests.get'.

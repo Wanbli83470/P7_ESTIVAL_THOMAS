@@ -48,6 +48,3 @@ class RequestWiki:
         resume_json = resume_json['query']['pages'][str(id_page)]['extract']
 
         return resume_json
-ok=RequestWiki()
-ok.geo_search()
-info=ok.get_adress()

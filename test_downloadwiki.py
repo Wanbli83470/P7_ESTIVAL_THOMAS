@@ -7,20 +7,6 @@ from unittest.mock import patch, Mock
 import json
 
 
-# Travail du format json
-x = {
-  "name": "John",
-  "age": 30,
-  "city": "New York"
-}
-
-#Conversion en JSON
-
-x_json = json.dumps(x)
-
-print(type(x_json))
-
-
 # Test Without mock
 
 # class TestWiki(unittest.TestCase):
@@ -51,12 +37,12 @@ print(type(x_json))
 # Test With Mock
 
 
-class BasicTests(unittest.TestCase):
+class MockTestWiki(unittest.TestCase):
 
-    def test_mock_whole_function(self):
-        """Mocking a whole function"""
+    def test_api_velodrome(self):
+        """Mocking with json file local"""
         mock_get_patcher = patch('wiki.r.get')
-        get_file = open('json_wiki_1.json', 'r')
+        get_file = open('json/json_wiki_1.json', 'r')
         json_file = json.load(get_file)
         # Start patching 'requests.get'.
         mock_get = mock_get_patcher.start()
@@ -66,7 +52,7 @@ class BasicTests(unittest.TestCase):
         mock_get.return_value.json.return_value = json_file
         print(mock_get)
         # Call the service, which will send a request to the server.
-        response = RequestWiki()
+        response = RequestWiki(lat=43.269827, lng=5.395887300000001)
         # Stop patching 'requests'.
 
         # Assert that the request-response cycle completed successfully.
@@ -74,11 +60,72 @@ class BasicTests(unittest.TestCase):
         self.assertIn(4223656, response.get_adress())
         get_file.close()
 
-        get_file = open('json_wiki_2.json', 'r')
+        get_file = open('json/json_wiki_2.json', 'r')
         json_file = json.load(get_file)
         mock_get.return_value.json.return_value = json_file
 
         self.assertIn("Le stade Vélodrome", response.resume(id_page=153581, url="Stade%20Vélodrome"))
+        get_file.close()
+
+        mock_get_patcher.stop()
+
+    def test_api_basilique(self):
+        """Mocking with json file local"""
+        mock_get_patcher = patch('wiki.r.get')
+        get_file = open('json/json_wiki_3.json', 'r')
+        json_file = json.load(get_file)
+        # Start patching 'requests.get'.
+        mock_get = mock_get_patcher.start()
+
+        # Configure the mock to return a response with status code 200 and a list of users.
+        mock_get.return_value.status_code = 200
+        mock_get.return_value.json.return_value = json_file
+        print(mock_get)
+        # Call the service, which will send a request to the server.
+        response = RequestWiki(lat=43.4527228, lng=5.8634467)
+        # Stop patching 'requests'.
+
+        # Assert that the request-response cycle completed successfully.
+        self.assertEqual(response.geo_search(), 200)
+        self.assertIn(1450977, response.get_adress())
+        get_file.close()
+
+        get_file = open('json/json_wiki_4.json', 'r')
+        json_file = json.load(get_file)
+        mock_get.return_value.json.return_value = json_file
+
+        self.assertIn("La basilique", response.resume(id_page=1450977, url="Basilique%20Sainte-Marie-Madeleine%20de%20Saint-Maximin-la-Sainte-Baume"))
+        get_file.close()
+
+        mock_get_patcher.stop()
+
+    def test_api_Sagrada_familia(self):
+        """Mocking with json file local"""
+        mock_get_patcher = patch('wiki.r.get')
+        get_file = open('json/json_wiki_5.json', 'r')
+        json_file = json.load(get_file)
+        # Start patching 'requests.get'.
+        mock_get = mock_get_patcher.start()
+
+        # Configure the mock to return a response with status code 200 and a list of users.
+        mock_get.return_value.status_code = 200
+        mock_get.return_value.json.return_value = json_file
+        print(mock_get)
+        # Call the service, which will send a request to the server.
+        response = RequestWiki(lat=41.4036299, lng=2.1743558)
+        # Stop patching 'requests'.
+
+        # Assert that the request-response cycle completed successfully.
+        self.assertEqual(response.geo_search(), 200)
+        self.assertIn(56154, response.get_adress())
+        get_file.close()
+
+        get_file = open('json/json_wiki_6.json', 'r')
+        json_file = json.load(get_file)
+        mock_get.return_value.json.return_value = json_file
+
+        self.assertIn('La Sagrada Família, Temple Expiatori de la Sagrada Família', response.resume(id_page=56154, url="Sagrada%20Família"))
+        get_file.close()
 
         mock_get_patcher.stop()
 
