@@ -45,7 +45,7 @@ def result():
         data_wiki = RequestWiki(lat=lat, lng=lng)
         data_wiki.geo_search()
         info_api = data_wiki.get_adress()
-        result_wiki = data_wiki.resume(url=info_api[0], id_page = info_api[1])
+        result_wiki = data_wiki.resume(url=info_api[0], id_page=info_api[1])
 
         # We post new answers with the random module
         random_maps = RANDOM()

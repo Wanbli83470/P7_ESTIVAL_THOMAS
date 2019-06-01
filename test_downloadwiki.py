@@ -130,6 +130,5 @@ class MockTestWiki(unittest.TestCase):
         mock_get_patcher.stop()
 
 
-
 if __name__ == '__main__':
     unittest.main()

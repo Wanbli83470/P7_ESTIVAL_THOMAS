@@ -6,7 +6,7 @@ from unittest.mock import patch, Mock
 from gmaps import RequestMap
 import json
 # Test Without mock
-
+print("TEST DU FICHIER gmaps.py")
 
 class TestMaps(unittest.TestCase):
 
@@ -16,13 +16,14 @@ class TestMaps(unittest.TestCase):
         """SetUp function to create class instances that will be used for testing"""
         self.response = RequestMap(words="versaille")
 
-
     def test_form_input(self):
         """test the type of user input >>> str """
         self.assertIs(type(self.response.words), str)
-
+        print("Saisie en chaine de caractère OK")
     def test_file_format(self):
-        pass
+        self.assertIn('json', self.response.http_get.headers['Content-type'])
+        print((self.response.http_get.headers['Content-type']))
+        print("Retour au format json OK")
 
 # with mock
 
@@ -104,6 +105,7 @@ class MockTestMaps(unittest.TestCase):
         # Close the processus
         mock_get_patcher.stop()
         get_file.close()
+
 
 if __name__ == '__main__':
     unittest.main()

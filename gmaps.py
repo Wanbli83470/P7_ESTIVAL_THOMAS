@@ -10,8 +10,6 @@ class RequestMap:
         self.words = words
         self.http_get = search.get('https://maps.googleapis.com/maps/api/geocode/json?address={}&key={}'.
                                    format(self.words, KEY_GMAPS))
-        print('https://maps.googleapis.com/maps/api/geocode/json?address={}&key={}'.
-                                   format(self.words, KEY_GMAPS))
         self.json_object = self.http_get.json()
 
 
@@ -32,5 +30,3 @@ class RequestMap:
         lng = self.json_object["results"][0]["geometry"]["location"]["lng"]
         location = (lat, lng)
         return location
-
-ok = RequestMap(words='Stade Vélodrome')
