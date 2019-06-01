@@ -39,7 +39,7 @@ import json
 
 class MockTestWiki(unittest.TestCase):
 
-    def test_api_velodrome(self):
+    def test_wiki_velodrome(self):
         """Mocking with json file local"""
         mock_get_patcher = patch('wiki.r.get')
         get_file = open('json/json_wiki_1.json', 'r')
@@ -69,7 +69,7 @@ class MockTestWiki(unittest.TestCase):
 
         mock_get_patcher.stop()
 
-    def test_api_basilique(self):
+    def test_wiki_basilique(self):
         """Mocking with json file local"""
         mock_get_patcher = patch('wiki.r.get')
         get_file = open('json/json_wiki_3.json', 'r')
@@ -99,7 +99,7 @@ class MockTestWiki(unittest.TestCase):
 
         mock_get_patcher.stop()
 
-    def test_api_Sagrada_familia(self):
+    def test_wiki_Sagrada_familia(self):
         """Mocking with json file local"""
         mock_get_patcher = patch('wiki.r.get')
         get_file = open('json/json_wiki_5.json', 'r')

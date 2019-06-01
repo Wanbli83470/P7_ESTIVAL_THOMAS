@@ -29,7 +29,7 @@ class TestMaps(unittest.TestCase):
 
 class MockTestMaps(unittest.TestCase):
 
-    def test_mock_data(self):
+    def test_maps_versailles(self):
         """Mocking a whole function"""
         mock_get_patcher = patch('gmaps.search.get')
         get_file = open('json/json_maps_1.json', 'r')
@@ -54,6 +54,56 @@ class MockTestMaps(unittest.TestCase):
         mock_get_patcher.stop()
         get_file.close()
 
+
+    def test_maps_velodrome(self):
+        """Mocking a whole function"""
+        mock_get_patcher = patch('gmaps.search.get')
+        get_file = open('json/json_maps_2.json', 'r')
+        json_file = json.load(get_file)
+
+        # Start patching 'requests.get'.
+        mock_get = mock_get_patcher.start()
+
+        # Configure the mock to return a response with status code 200 and a list of users.
+        mock_get.return_value.status_code = 200
+        mock_get.return_value.json.return_value = json_file
+
+        # Call the service, which will send a request to the server.
+        response = RequestMap()
+
+
+        # Assert that the request-response cycle completed successfully.
+        self.assertEqual(response.response(), 200)
+        self.assertIn("Boulevard Michelet", response.get_adress())
+        self.assertEqual((43.269827, 5.395887300000001), response.get_location())
+        # Close the processus
+        mock_get_patcher.stop()
+        get_file.close()
+
+    def test_maps_sagrada_familia(self):
+        """Mocking a whole function"""
+        mock_get_patcher = patch('gmaps.search.get')
+        get_file = open('json/json_maps_3.json', 'r')
+        json_file = json.load(get_file)
+
+        # Start patching 'requests.get'.
+        mock_get = mock_get_patcher.start()
+
+        # Configure the mock to return a response with status code 200 and a list of users.
+        mock_get.return_value.status_code = 200
+        mock_get.return_value.json.return_value = json_file
+
+        # Call the service, which will send a request to the server.
+        response = RequestMap()
+
+
+        # Assert that the request-response cycle completed successfully.
+        self.assertEqual(response.response(), 200)
+        self.assertIn("Carrer de Mallorca", response.get_adress())
+        self.assertEqual((41.4036299, 2.1743558), response.get_location())
+        # Close the processus
+        mock_get_patcher.stop()
+        get_file.close()
 
 if __name__ == '__main__':
     unittest.main()
