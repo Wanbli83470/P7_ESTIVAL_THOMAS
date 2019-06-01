@@ -1,0 +1,68 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "401",
+               "short_name" : "401",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Carrer de Mallorca",
+               "short_name" : "Carrer de Mallorca",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Barcelona",
+               "short_name" : "Barcelona",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Barcelona",
+               "short_name" : "Barcelona",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Barcelona",
+               "short_name" : "Barcelona",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "Espagne",
+               "short_name" : "ES",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "08013",
+               "short_name" : "08013",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "Carrer de Mallorca, 401, 08013 Barcelona, Espagne",
+         "geometry" : {
+            "location" : {
+               "lat" : 41.4036299,
+               "lng" : 2.1743558
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 41.4049788802915,
+                  "lng" : 2.175704780291502
+               },
+               "southwest" : {
+                  "lat" : 41.4022809197085,
+                  "lng" : 2.173006819708498
+               }
+            }
+         },
+         "place_id" : "ChIJk_s92NyipBIRUMnDG8Kq2Js",
+         "plus_code" : {
+            "compound_code" : "C53F+FP Barcelone, Espagne",
+            "global_code" : "8FH4C53F+FP"
+         },
+         "types" : [ "church", "establishment", "place_of_worship", "point_of_interest" ]
+      }
+   ],
+   "status" : "OK"
+}
