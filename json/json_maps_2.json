@@ -1,0 +1,68 @@
+{
+   "results" : [
+      {
+         "address_components" : [
+            {
+               "long_name" : "3",
+               "short_name" : "3",
+               "types" : [ "street_number" ]
+            },
+            {
+               "long_name" : "Boulevard Michelet",
+               "short_name" : "Boulevard Michelet",
+               "types" : [ "route" ]
+            },
+            {
+               "long_name" : "Marseille",
+               "short_name" : "Marseille",
+               "types" : [ "locality", "political" ]
+            },
+            {
+               "long_name" : "Bouches-du-Rhône",
+               "short_name" : "Bouches-du-Rhône",
+               "types" : [ "administrative_area_level_2", "political" ]
+            },
+            {
+               "long_name" : "Provence-Alpes-Côte d'Azur",
+               "short_name" : "Provence-Alpes-Côte d'Azur",
+               "types" : [ "administrative_area_level_1", "political" ]
+            },
+            {
+               "long_name" : "France",
+               "short_name" : "FR",
+               "types" : [ "country", "political" ]
+            },
+            {
+               "long_name" : "13008",
+               "short_name" : "13008",
+               "types" : [ "postal_code" ]
+            }
+         ],
+         "formatted_address" : "3 Boulevard Michelet, 13008 Marseille, France",
+         "geometry" : {
+            "location" : {
+               "lat" : 43.269827,
+               "lng" : 5.395887300000001
+            },
+            "location_type" : "ROOFTOP",
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 43.2711759802915,
+                  "lng" : 5.397236280291503
+               },
+               "southwest" : {
+                  "lat" : 43.2684780197085,
+                  "lng" : 5.3945383197085
+               }
+            }
+         },
+         "place_id" : "ChIJGRyneKe4yRIRHtz0w2zlCvM",
+         "plus_code" : {
+            "compound_code" : "799W+W9 Marseille, France",
+            "global_code" : "8FM7799W+W9"
+         },
+         "types" : [ "establishment", "point_of_interest", "stadium" ]
+      }
+   ],
+   "status" : "OK"
+}
