@@ -9,30 +9,26 @@ import json
 
 # Test Without mock
 
-# class TestWiki(unittest.TestCase):
-#
-#     def setUp(self):
-#         """SetUp function to create class instances that will be used for testing"""
-#         # Instance de request Wiki
-#         self.response = RequestWiki()
-#         self.response.geo_search()
-#         self.info = self.response.get_adress()
-#         print("info = {}".format(self.info))
-#
-#
-#     def test_response(self):
-#         """tests of the responses http 200 or 400"""
-#         self.assertEqual(self.response.geo_search(), 200)
-#
-#     def test_adress(self):
-#         """Checking the recovered address"""
-#         self.assertEqual(self.response.get_adress(), ("Lycée%20Honoré-d'Estienne-d'Orves", 4223656))
-#
-#     def test_resume(self):
-#         """Test that the answer contains the relevant keywords"""
-#         print(type(self.response.resume(url=self.info[0], id_page=self.info[1])))
-#         self.assertIn("Le lycée Honoré-d’Estienne-d’Orves", self.response.resume(url=self.info[0], id_page=self.info[1]))
+class TestWiki(unittest.TestCase):
 
+    def setUp(self):
+        """SetUp function to create class instances that will be used for testing"""
+        # Instance de request Wiki
+        self.response = RequestWiki()
+        self.response_format = self.response.geo_search()
+        print("ok" + self.response_format)
+
+    def test_form_input(self):
+        """test the type of user input >>> float """
+        self.assertIs(type(self.response.lat), float)
+        self.assertIs(type(self.response.lng), float)
+
+        print("Saisie en décimal OK")
+
+    def test_file_format(self):
+        self.assertIn('json', self.response_format.geo.headers['Content-type'])
+        print((self.response_format.geo.headers['Content-type']))
+        print("Retour au format json OK")
 
 # Test With Mock
 

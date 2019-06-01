@@ -18,10 +18,7 @@ class RequestWiki:
         url = "https://fr.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord={}|{}&gsradius=10000&gslimit=10&format=json".\
             format(self.lat, self.lng)
         self.geo = r.get(url)
-        print(self.geo.headers['Content-type'])
         status = self.geo.status_code
-        print(status)
-        print(url)
         return status
 
     def get_adress(self):
