@@ -22,13 +22,13 @@ class TestWiki(unittest.TestCase):
         """test the type of user input >>> float """
         self.assertIs(type(self.response.lat), float)
         self.assertIs(type(self.response.lng), float)
-
         print("Saisie en décimal OK")
 
     def test_file_format(self):
         self.assertIn('json', self.response.geo.headers['Content-type'])
         print((self.response.geo.headers['Content-type']))
         print("Retour au format json OK")
+
 
 # Test With Mock
 
