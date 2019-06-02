@@ -1,8 +1,10 @@
 """Import the request module as 'search' """
 import json
 import requests as search
-from password import KEY_GMAPS
+import os
 
+KEY_GMAPS = os.environ["KEY_GMAPS"]
+print(KEY_GMAPS)
 
 class RequestMap:
     """Utiliation du géocodage de l'API wikipedia pour obtenir un résultat obligatoirement"""
