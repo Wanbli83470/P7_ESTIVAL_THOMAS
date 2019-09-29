@@ -25,3 +25,16 @@ Guide d'installation du programme :
 4. Installer les paquets et les dépendances à l'aide de la commande "pip install -r requirements.txt"
 5. Lancer le programme avec la commande suivante : "Python app.py"
 6. Ouvrer votre navigateur et rendez-vous à l'adresse suivante : "http://localhost:5000/"
+
+
+Launching of the test:
+----------------------
+1. Open a terminal in the root folder "PROJET_7
+2. Activate your virtual environment with command "./venv/bin/activate".
+3. Lauch the commande "Python -m unittest"
+
+Lancement des test :
+--------------------
+1. Ouvrir un terminal dans le dossier racine "PROJET_7"
+2. Activez l'environnement virtuel à l'aide de la commande suivante : "./venv/bin/activate"
+3. Lancer la commande : "python -m unittest"
