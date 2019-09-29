@@ -2,8 +2,8 @@
 import json
 import requests as search
 import os
+from constantes import *
 
-KEY_GMAPS = "AIzaSyALFscZvQOVMBXm_0hwRR5EQcqaZLuTpE0"
 print(KEY_GMAPS)
 
 class RequestMap:

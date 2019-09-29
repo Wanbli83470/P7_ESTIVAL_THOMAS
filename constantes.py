@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import random as r
-
+import os
 # fixed data to use with the 'Jinja' template engine
 MY_NAME = "ESTIVAL Thomas"
 TITLE = "GrandPyBot"
@@ -33,6 +33,8 @@ RANDOM1 = r.choice(GRANDPY1)
 GRANDPY2 = ["Mais t'ai-je déjà raconté l'histoire de ce quartier qui m'a vu en culottes courtes ? ", " A l'époque on jouait aux billes avec mes copains, ce quartier : "]
 RANDOM2 = r.choice(GRANDPY2)
 
+
+KEY_GMAPS = os.environ.get("KEY_GMAPS")
 
 def RANDOM():
 	return r.choice(GRANDPY1)
